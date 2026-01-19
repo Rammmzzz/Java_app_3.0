@@ -49,8 +49,8 @@ pipeline{
             steps{
                script{
                    
-                   def SonarQubecredentialsId = 'sonarqube-api'
-                   statiCodeAnalysis(SonarQubecredentialsId)
+                   // Use the SonarQube server ID from Jenkins
+                   statiCodeAnalysis('sonarqube-api')
                }
             }
        }
