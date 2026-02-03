@@ -47,7 +47,7 @@ pipeline{
         stage('SonarQube Analysis') {
          when { expression { params.action == 'create' } }
            steps {
-            withSonarQubeEnv('sonarqube') {
+            withSonarQubeEnv('sonar-api') {
              sh 'mvn clean verify sonar:sonar'
                }
              }
