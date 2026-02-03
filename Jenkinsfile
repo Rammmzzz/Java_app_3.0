@@ -44,6 +44,14 @@ pipeline{
                }
             }
         }
+        stage('SonarQube Analysis') {
+         when { expression { params.action == 'create' } }
+           steps {
+            withSonarQubeEnv('sonarqube') {
+             sh 'mvn clean verify sonar:sonar'
+               }
+             }
+        }
         stage('Static code analysis: Sonarqube'){
          when { expression {  params.action == 'create' } }
             steps{
